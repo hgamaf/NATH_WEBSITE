@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nathalia Maria do Nascimento - Psicóloga</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='90'>🌻</text></svg>">
+    <link rel="shortcut icon" href="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='90'>🌻</text></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='90'>🌻</text></svg>">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f0e6;
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .navbar {
+            background-color: #e6dcd1;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #695d53;
+            font-weight: 500;
+            font-size: 16px;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-menu li a:hover, .nav-menu li a.active {
+            color: #4a413a;
+        }
+
+        .social-link {
+            color: #695d53;
+            font-size: 1.3em;
+            transition: color 0.3s ease;
+            margin-left: 20px;
+        }
+
+        .social-link:hover {
+            color: #4a413a;
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(245, 240, 230, 0.85), rgba(245, 240, 230, 0.85)),
+                        url('assets/logo.jpeg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #4a413a;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #695d53;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 300;
+        }
+
+        #home {
+            background: linear-gradient(rgba(245, 240, 230, 0.8), rgba(245, 240, 230, 0.8)),
+                        url('assets/sunflower-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 150px;
+        }
+
+        .profile-info {
+            margin-bottom: 80px;
+        }
+
+        .profile-name {
+            font-size: 3em;
+            color: #4a413a;
+            margin-bottom: 10px;
+        }
+
+        .profile-title {
+            font-size: 1.5em;
+            color: #695d53;
+            margin-bottom: 10px;
+        }
+
+        .profile-crp {
+            font-size: 1.2em;
+            color: #695d53;
+            font-weight: 500;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: rgba(245, 240, 230, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .quote-text {
+            font-size: 1.4em;
+            color: #4a413a;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .quote-author {
+            font-size: 1.1em;
+            color: #695d53;
+            font-weight: 500;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-button i {
+            font-size: 35px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .profile-image {
+            flex: 1;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid #e6dcd1;
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .about-content {
+            flex: 1;
+            text-align: left;
+        }
+
+        .about-title {
+            font-size: 1.8em;
+            color: #4a413a;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .about-text {
+            font-size: 1.1em;
+            color: #695d53;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .education-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .education-icon {
+            color: #4a413a;
+            font-size: 1.2em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f5f0e6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .service-icon i {
+            font-size: 35px;
+            color: #4a413a;
+        }
+
+        .service-title {
+            font-size: 1.3em;
+            color: #4a413a;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .service-description {
+            font-size: 1em;
+            color: #695d53;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 992px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-container {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .profile-image {
+                margin-bottom: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .social-link {
+                margin-left: 0;
+            }
+        }
+
+        .faq-container {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            background-color: white;
+            transition: background-color 0.3s ease;
+            position: relative;
+        }
+
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1em;
+            color: #4a413a;
+            font-weight: 500;
+            text-align: center;
+            flex-grow: 1;
+            padding-right: 30px;
+        }
+
+        .faq-toggle {
+            background: none;
+            border: none;
+            color: #695d53;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 0;
+            margin-left: 20px;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            margin: 0;
+            color: #695d53;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #d4c5b5;
+            padding: 20px 0;
+            text-align: center;
+            color: #4a413a;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .footer-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-info {
+                flex-direction: column;
+                gap: 5px;
+            }
+        }
+
+        .social-links {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-link {
+            color: #695d53;
+            font-size: 1.8em;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            color: #4a413a;
+            transform: scale(1.1);
+        }
+
+        .social-text {
+            font-size: 0.6em;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#home"><i class="fas fa-home"></i> HOME</a></li>
+                <li><a href="#sobre"><i class="fas fa-heart"></i> SOBRE MIM</a></li>
+                <li><a href="#atendimento"><i class="fas fa-hands-helping"></i> TIPOS DE ATENDIMENTO</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> PERGUNTAS FREQUENTES</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="section">
+        <div class="container">
+            <div class="profile-info">
+                <h1 class="profile-name">Nathalia Maria do Nascimento</h1>
+                <h2 class="profile-title">Psicóloga</h2>
+                <p class="profile-crp">CRP-04/78690</p>
+            </div>
+            
+            <div class="quote-container">
+                <p class="quote-text">
+                    "No fundo, todos temos necessidade de dizer quem somos e o que é que estamos a fazer e a necessidade de deixar algo feito, porque esta vida não é eterna e deixar coisas feitas pode ser uma forma de eternidade"
+                </p>
+                <p class="quote-author">José Saramago, 2014</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="section">
+        <div class="container">
+            <h2 class="section-title">Sobre Mim</h2>
+            <p class="section-subtitle">Conheça um pouco mais sobre minha trajetória e abordagem terapêutica</p>
+            
+            <div class="about-container">
+                <div class="profile-image">
+                    <img src="assets/assests.jpeg" alt="Psicóloga Nathalia Maria Nascimento">
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/nathali.apsi" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                            <span class="social-text">@nathali.apsi</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h3 class="about-title">Formação e Experiência</h3>
+                    <div class="education-item">
+                        <i class="fas fa-graduation-cap education-icon"></i>
+                        <p class="about-text">Graduação em Psicologia pela Universidade do Vale do Sapucaí (UNIVÁS)</p>
+                    </div>
+                    <p class="about-text">
+                        Dedico minha prática profissional ao acolhimento e cuidado com cada pessoa que busca apoio psicológico. 
+                        Acredito que cada indivíduo é único e merece uma abordagem personalizada que respeite sua história e suas necessidades específicas.
+                    </p>
+                    <p class="about-text">
+                        Minha atuação é pautada em evidências científicas e constante atualização profissional, 
+                        buscando sempre as melhores práticas para auxiliar no desenvolvimento e bem-estar dos meus pacientes.
+                    </p>
+                    <p class="about-text">
+                        Trabalho com uma abordagem integrativa, considerando os diversos aspectos que compõem a experiência humana, 
+                        proporcionando um espaço seguro e acolhedor para o autoconhecimento e crescimento pessoal.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="atendimento" class="section">
+        <div class="container">
+            <h2 class="section-title">Tipos de Atendimento</h2>
+            <p class="section-subtitle">Conheça as modalidades de atendimento disponíveis</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3 class="service-title">Terapia Individual</h3>
+                    <p class="service-description">Atendimento personalizado focado nas necessidades específicas de cada pessoa.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="service-title">Terapia de Casal</h3>
+                    <p class="service-description">Auxílio na resolução de conflitos e fortalecimento dos laços afetivos.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="service-title">Terapia Familiar</h3>
+                    <p class="service-description">Mediação e harmonização das relações familiares.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="service-title">Neuropsicologia</h3>
+                    <p class="service-description">Avaliação e acompanhamento das funções cognitivas.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3 class="service-title">Psicologia Infantil</h3>
+                    <p class="service-description">Acompanhamento especializado para crianças e adolescentes.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="service-title">Psicologia Organizacional</h3>
+                    <p class="service-description">Suporte para questões relacionadas ao ambiente profissional.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3 class="service-title">Acolhimento em Luto</h3>
+                    <p class="service-description">Apoio especializado no processo de luto e perdas.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3 class="service-title">Orientação Vocacional</h3>
+                    <p class="service-description">Auxílio na descoberta do caminho profissional.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="service-title">Desenvolvimento Pessoal</h3>
+                    <p class="service-description">Apoio no processo de autoconhecimento e crescimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Tire suas dúvidas sobre o processo terapêutico</p>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo dura uma sessão de terapia?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As sessões de terapia têm duração de 50 minutos, sendo este o tempo padrão recomendado para um atendimento efetivo.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Com qual frequência devo fazer terapia?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Geralmente, recomenda-se uma sessão semanal. No entanto, a frequência pode ser ajustada de acordo com as necessidades individuais e o momento do processo terapêutico.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como são realizadas as sessões online?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>As sessões online são realizadas através de plataformas seguras de videochamada, mantendo o mesmo padrão de qualidade e sigilo do atendimento presencial.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo dura o processo terapêutico?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O tempo de terapia varia para cada pessoa, dependendo dos objetivos, questões trabalhadas e evolução individual. Não existe um prazo predeterminado.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>A terapia é sigilosa?</h3>
+                        <button class="faq-toggle"><i class="fas fa-plus"></i></button>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, o sigilo é um princípio fundamental da psicoterapia. Todas as informações compartilhadas durante as sessões são estritamente confidenciais.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="https://wa.me/5535999161137?text=Olá!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" class="whatsapp-button">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-info">
+                <span>Nathalia Maria do Nascimento</span>
+                <span>CRP-04/78690</span>
+            </div>
+            <div>
+                <span>&copy; 2025 Todos os direitos reservados</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Adiciona a classe 'active' ao item do menu correspondente à seção visível
+        document.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            const navItems = document.querySelectorAll('.nav-menu a');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= (sectionTop - sectionHeight/3)) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if(item.getAttribute('href').slice(1) === section.getAttribute('id')) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Adiciona funcionalidade para as perguntas frequentes
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const toggle = question.querySelector('.faq-toggle');
+                
+                // Fecha todas as outras respostas
+                document.querySelectorAll('.faq-answer').forEach(item => {
+                    if (item !== answer) {
+                        item.classList.remove('active');
+                        item.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+                    }
+                });
+
+                // Abre/fecha a resposta clicada
+                answer.classList.toggle('active');
+                toggle.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

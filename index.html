@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nathalia Maria do Nascimento - Psicóloga</title>
+    <title>Nathália Maria do Nascimento - Psicóloga</title>
     
     <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml;charset=utf-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='50%' x='50%' dominant-baseline='middle' text-anchor='middle' font-size='90'>🌻</text></svg>">
@@ -78,15 +78,14 @@
             color: #4a413a;
         }
 
-        .section {
+        .section, #home, #sobre {
             min-height: 100vh;
             padding: 80px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(rgba(245, 240, 230, 0.85), rgba(245, 240, 230, 0.85)),
-                        url('assets/logo.jpeg');
+            background: linear-gradient(rgba(245, 240, 230, 0.85), rgba(245, 240, 230, 0.85)), url('assets/logo.jpeg');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -111,11 +110,6 @@
         }
 
         #home {
-            background: linear-gradient(rgba(245, 240, 230, 0.8), rgba(245, 240, 230, 0.8)),
-                        url('assets/sunflower-bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
             text-align: center;
             position: relative;
             display: flex;
@@ -147,12 +141,12 @@
         }
 
         .quote-container {
+            background: rgba(245, 240, 230, 0.85) !important;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1) !important;
+            border-radius: 15px;
             max-width: 800px;
             margin: 0 auto;
             padding: 30px;
-            background-color: rgba(245, 240, 230, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .quote-text {
@@ -196,17 +190,12 @@
             font-size: 35px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
+        .container, .quote-container {
+            background: none !important;
         }
 
         #sobre {
-            background: linear-gradient(rgba(245, 240, 230, 0.85), rgba(245, 240, 230, 0.85));
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            /* Removido background: none para garantir que o logo apareça */
         }
 
         .about-container {
@@ -503,8 +492,9 @@
 
         /* Estilos do Carrossel de Depoimentos */
         .testimonials-section {
-            padding: 80px 0;
-            background-color: #f5f0e6;
+            padding: 80px 0 120px 0;
+            background: none !important;
+            position: relative;
         }
 
         .testimonials-container {
@@ -586,29 +576,56 @@
             }
         }
 
-        .slider-controls {
+        .slider-controls.slider-controls-center {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            z-index: 10;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-top: 30px;
+            align-items: center;
+            width: 100%;
+            pointer-events: auto;
+            margin-top: 0;
         }
 
         .slider-button {
-            background: #e6dcd1;
+            background: #4a413a;
+            color: #fff;
             border: none;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            font-size: 1.2em;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            margin: 0 10px;
+            transition: background 0.3s, color 0.3s, transform 0.2s;
         }
 
         .slider-button:hover {
-            background: #4a413a;
-            color: white;
+            background: #e6dcd1;
+            color: #4a413a;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 900px) {
+            .slider-button {
+                width: 28px;
+                height: 28px;
+                font-size: 1em;
+                margin: 0 6px;
+            }
+            .testimonials-section {
+                padding-bottom: 80px;
+            }
+            .slider-controls.slider-controls-center {
+                bottom: 10px;
+            }
         }
 
         /* Modal Zoom */
@@ -649,13 +666,21 @@
             z-index: 10001;
         }
 
-        /* Centralizar controles do slider abaixo dos depoimentos */
-        .slider-controls-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-            width: 100%;
+        .container, .about-container, .testimonials-container, .quote-container {
+            background: none !important;
+            background-color: transparent !important;
+        }
+
+        .testimonial-card, .quote-container, .about-content, .profile-image {
+            background: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+        .testimonials-container, .testimonials-slider, .testimonial-image {
+            background: none !important;
+            background-color: transparent !important;
+            box-shadow: none !important;
         }
     </style>
 </head>
@@ -674,16 +699,16 @@
     <section id="home" class="section">
         <div class="container">
             <div class="profile-info">
-                <h1 class="profile-name">Nathalia Maria do Nascimento</h1>
+                <h1 class="profile-name">Nathália Maria do Nascimento</h1>
                 <h2 class="profile-title">Psicóloga</h2>
                 <p class="profile-crp">CRP-04/78690</p>
             </div>
             
             <div class="quote-container">
                 <p class="quote-text">
-                    "No fundo, todos temos necessidade de dizer quem somos e o que é que estamos a fazer e a necessidade de deixar algo feito, porque esta vida não é eterna e deixar coisas feitas pode ser uma forma de eternidade"
+                    "Você vive hoje uma vida que gostaria de viver por toda a eternidade?"
                 </p>
-                <p class="quote-author">José Saramago, 2014</p>
+                <p class="quote-author">Friedrich Nietzsche</p>
             </div>
         </div>
     </section>
@@ -695,9 +720,9 @@
                 <div class="profile-image">
                     <img src="assets/Perfil.jpeg" alt="Psicóloga Nathalia Maria Nascimento">
                     <div class="social-links">
-                        <a href="https://www.instagram.com/nathali.apsi" target="_blank" class="social-link">
+                        <a href="https://www.instagram.com/nathaliaapsic" target="_blank" class="social-link">
                             <i class="fab fa-instagram"></i>
-                            <span class="social-text">@nathali.apsi</span>
+                            <span class="social-text">@nathaliaapsic</span>
                         </a>
                     </div>
                 </div>
@@ -756,8 +781,8 @@
 
     <section id="atendimento" class="section">
         <div class="container">
-            <h2 class="section-title">Tipos de Atendimento</h2>
-            <p class="section-subtitle">Conheça as modalidades de atendimento disponíveis</p>
+            <h2 class="section-title">Sobre os Atendimentos</h2>
+            <p class="section-subtitle">Conheça sobre o atendimento disponível</p>
             
             <div class="services-grid">
                 <div class="service-card">
@@ -770,42 +795,43 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fas fa-face-meh"></i>
                     </div>
-                    <h3 class="service-title">Terapia de Casal</h3>
-                    <p class="service-description">Auxílio na resolução de conflitos e fortalecimento dos laços afetivos.</p>
+                    <h3 class="service-title">Repressão Emocional</h3>
+                    <p class="service-description">Trabalho com autoconhecimento e validação emocional, ajudando o paciente a se reconectar com seus sentimentos, expressar emoções reprimidas e se libertar de bloqueios emocionais.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-cloud-rain"></i>
                     </div>
-                    <h3 class="service-title">Terapia Familiar</h3>
-                    <p class="service-description">Mediação e harmonização das relações familiares.</p>
+                    <h3 class="service-title">Depressão</h3>
+                    <p class="service-description">Trabalhamos para entender essa dor com acolhimento e sem julgamentos. Juntas, vamos reconstruir a conexão com você mesma, fortalecer sua autoestima e encontrar, pouco a pouco, o caminho de volta à vida.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3 class="service-title">Neuropsicologia</h3>
-                    <p class="service-description">Avaliação e acompanhamento das funções cognitivas.</p>
+                    <h3 class="service-title">Ansiedade</h3>
+                    <p class="service-description">Acompanhamento para identificar gatilhos, promover autorregulação emocional e desenvolver estratégias para reduzir os sintomas ansiosos</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-child"></i>
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                    <h3 class="service-title">Psicologia Infantil</h3>
-                    <p class="service-description">Acompanhamento especializado para crianças e adolescentes.</p>
+                    <h3 class="service-title">Auto Conhecimento</h3>
+                    <p class="service-description">O autoconhecimento fortalece sua autoestima, te aproxima dos seus valores e abre caminhos para viver de forma mais consciente e alinhada com o que realmente importa para você.</p>
                 </div>
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-link"></i>
                     </div>
-                    <h3 class="service-title">Psicologia Organizacional</h3>
-                    <p class="service-description">Suporte para questões relacionadas ao ambiente profissional.</p>
+                    <h3 class="service-title">Dependência Emocional</h3>
+                    <p class="service-description">Quando você sente que não consegue ser feliz sem o outro, pode estar vivendo uma dependência emocional.
+                        Na terapia, você aprende a se fortalecer, se colocar em primeiro lugar e construir relações mais saudáveis e leves.</p>
                 </div>
 
                 <div class="service-card">
@@ -818,7 +844,7 @@
 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-comments"></i>
+                        <i class="fas fa-compass"></i>
                     </div>
                     <h3 class="service-title">Orientação Vocacional</h3>
                     <p class="service-description">Auxílio na descoberta do caminho profissional.</p>
